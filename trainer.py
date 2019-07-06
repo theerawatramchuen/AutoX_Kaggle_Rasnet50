@@ -19,7 +19,7 @@ OBJECTIVE_FUNCTION = 'categorical_crossentropy'
 LOSS_METRICS = ['accuracy']
 
 # EARLY_STOP_PATIENCE must be < NUM_EPOCHS
-NUM_EPOCHS = 20
+NUM_EPOCHS = 50
 EARLY_STOP_PATIENCE = 3
 
 # These steps value should be proper FACTOR of no.-of-images in train & valid folders respectively
@@ -64,6 +64,12 @@ from tensorflow.python.keras import optimizers
 sgd = optimizers.SGD(lr = 0.001, decay = 1e-6, momentum = 0.9, nesterov = True)
 model.compile(optimizer = sgd, loss = OBJECTIVE_FUNCTION, metrics = LOSS_METRICS)
 
+# Load Saved_weight
+from pathlib import Path
+my_file = Path("working/best.hdf5")
+if my_file.is_file():
+    model.load_weights('working/best.hdf5')
+
 
 # ### Prepare Keras Data Generators
 # 
@@ -97,27 +103,16 @@ validation_generator = data_generator.flow_from_directory(
 (BATCH_SIZE_TRAINING, len(train_generator), BATCH_SIZE_VALIDATION, len(validation_generator))
 
 
-# ### Train Our Model With Cats & Dogs Train (splitted) Data Set
+# ### Train Our Model With Train (splitted) Data Set
 # Early stopping & checkpointing the best model in ../working dir & restoring that as our model for prediction
 from tensorflow.python.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 cb_early_stopper = EarlyStopping(monitor = 'val_loss', patience = EARLY_STOP_PATIENCE)
 cb_checkpointer = ModelCheckpoint(filepath = 'working/best.hdf5', monitor = 'val_loss', save_best_only = True, mode = 'auto')
 
-
-# Grid Search is an ideal candidate for distributed machine learning
-# Pseudo code for hyperparameters Grid Search
-
-'''
-from sklearn.grid_search import ParameterGrid
-param_grid = {'epochs': [5, 10, 15], 'steps_per_epoch' : [10, 20, 50]}
-
-grid = ParameterGrid(param_grid)
-
-# Accumulate history of all permutations (may be for viewing trend) and keep watching for lowest val_loss as final model
-for params in grid:
-    print(params)
-'''
+# ### Start Training Network
+import time
+Time_start = time.time()
 
 fit_history = model.fit_generator(
         train_generator,
@@ -127,13 +122,9 @@ fit_history = model.fit_generator(
         validation_steps=STEPS_PER_EPOCH_VALIDATION,
         callbacks=[cb_checkpointer, cb_early_stopper]
 )
+Time_end = time.time()
 
-
-# Load Saved_weight
-from pathlib import Path
-my_file = Path("working/best.hdf5")
-if my_file.is_file():
-    model.load_weights('working/best.hdf5')
+print("Training Time (minutes):",round((Time_end - Time_start)/60))
 
 # ### Training Metrics
 # 
