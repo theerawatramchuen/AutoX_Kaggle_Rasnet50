@@ -7,7 +7,7 @@ https://drive.google.com/open?id=1wMEDf1I4PiDMMz3nkg_6dqE5BTnQ13Ec
 # Original source : 
 https://www.kaggle.com/suniliitb96/tutorial-keras-transfer-learning-with-resnet50?fbclid=IwAR1P-EhxjaiZARQmdqByDt-S5PrOerN_Z85u2rzARHl-Uow1sni7ACPE1XQ
 
-# Leg#1 trainer_ch1.py (CHANNELS = 1, LR = 0.0001)
+# Leg#1 trainer_ch1.py (CHANNELS = 1, LR = 0.0001, BS =16)
 Epoch 10/50
 64/64 - 103s 2s/step - loss: 0.0909 - acc: 0.9941
 252/252 - 1078s 4s/step - loss: 0.0720 - acc: 0.9819 - val_loss: 0.0909 - val_acc: 0.9941
