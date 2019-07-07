@@ -11,15 +11,19 @@ https://www.kaggle.com/suniliitb96/tutorial-keras-transfer-learning-with-resnet5
 Epoch 10/50
 64/64 - 103s 2s/step - loss: 0.0909 - acc: 0.9941
 252/252 - 1078s 4s/step - loss: 0.0720 - acc: 0.9819 - val_loss: 0.0909 - val_acc: 0.9941
+
 Epoch 11/50
 64/64 - 103s 2s/step - loss: 0.0839 - acc: 0.9941
 252/252  - 1080s 4s/step - loss: 0.0665 - acc: 0.9846 - val_loss: 0.0839 - val_acc: 0.9941
+
 Epoch 12/50
 64/64  - 102s 2s/step - loss: 0.0797 - acc: 0.9950
 252/252  - 1075s 4s/step - loss: 0.0663 - acc: 0.9861 - val_loss: 0.0797 - val_acc: 0.9950
+
 Epoch 13/50
 64/64  - 102s 2s/step - loss: 0.0794 - acc: 0.9941
 252/252  - 1074s 4s/step - loss: 0.0628 - acc: 0.9851 - val_loss: 0.0794 - val_acc: 0.9941
+
 Epoch 14/50
 64/64  - 103s 2s/step - loss: 0.0739 - acc: 0.9950
 252/252  - 1076s 4s/step - loss: 0.0606 - acc: 0.9854 - val_loss: 0.0739 - val_acc: 0.9950
