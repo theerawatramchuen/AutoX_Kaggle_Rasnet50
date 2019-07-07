@@ -27,13 +27,17 @@ Epoch 13/50
 Epoch 14/50
 64/64  - 103s 2s/step - loss: 0.0739 - acc: 0.9950
 252/252  - 1076s 4s/step - loss: 0.0606 - acc: 0.9854 - val_loss: 0.0739 - val_acc: 0.9950
+
 Epoch 15/50
 64/64  - 103s 2s/step - loss: 0.0787 - acc: 0.9911
 252/252  - 1076s 4s/step - loss: 0.0575 - acc: 0.9868 - val_loss: 0.0787 - val_acc: 0.9911
+
 Epoch 16/50
 64/64  - 103s 2s/step - loss: 0.0754 - acc: 0.9921
 252/252  - 1076s 4s/step - loss: 0.0550 - acc: 0.9868 - val_loss: 0.0754 - val_acc: 0.9921
+
 Epoch 17/50
 64/64  - 103s 2s/step - loss: 0.0805 - acc: 0.9911
 252/252  - 1077s 4s/step - loss: 0.0561 - acc: 0.9873 - val_loss: 0.0805 - val_acc: 0.9911
+
 Training Time (minutes): 306
